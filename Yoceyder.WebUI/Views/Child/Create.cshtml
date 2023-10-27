@@ -1,0 +1,73 @@
+﻿@model Child
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <h1>YARDIM OLUŞTUR</h1>
+    <br />
+    <form asp-controller="Child" asp-action="Create" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="@ViewBag.idal" asp-for="Vasi_Id" />
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="Cocuk_Tc"> TC KİMLİK NUMARASI </label>
+                <input type="text" asp-for="Cocuk_Tc" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Cocuk_AdiSoyadi"> ADI SOYADI </label>
+                <input type="text" asp-for="Cocuk_AdiSoyadi" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Cocuk_Cinsiyet"> CİNSİYET </label>
+                <input type="text" asp-for="Cocuk_Cinsiyet" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Cocuk_DogumTarihi"> DOĞUM TARİHİ </label>
+                <input  asp-for="Cocuk_DogumTarihi" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Cocuk_OgrenimDurumu"> ÖĞRENİM DURUMU </label>
+                <input type="text" asp-for="Cocuk_OgrenimDurumu" class="form-control">
+            </div>
+            <div class="bg-light">
+                <div class="form-group">
+                    <label asp-for="Cocuk_OkulAdi"> OKUL ADI </label>
+                    <textarea asp-for="Cocuk_OkulAdi" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_Sinif"> SINIF </label>
+                    <input type="text" asp-for="Cocuk_Sinif" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_VasiYakinlik"> VASİ YAKINLIK </label>
+                    <input type="text" asp-for="Cocuk_VasiYakinlik" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_KaldigiYer"> KALDIĞI YER </label>
+                    <input type="text" asp-for="Cocuk_KaldigiYer" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_AnneAdi"> ANNE ADI </label>
+                    <input type="text" asp-for="Cocuk_AnneAdi" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_BabaAdi"> BABA ADI </label>
+                    <input type="text" asp-for="Cocuk_BabaAdi" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_AnneDurum"> ANNE DURUM </label>
+                    <input type="text" asp-for="Cocuk_AnneDurum" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cocuk_BabaDurum"> BABA DURUM </label>
+                    <input type="text" asp-for="Cocuk_BabaDurum" class="form-control">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"> EKLE </button>
+            <a class="btn btn-danger" asp-controller="Parents" asp-action="Profile" asp-route-id="@ViewBag.idal">
+                İPTAL
+            </a>
+        </div>
+    </form>
+</div>
+

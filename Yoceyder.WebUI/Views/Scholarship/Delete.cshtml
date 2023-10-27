@@ -1,0 +1,22 @@
+﻿@model Scholarship
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>
+                <b> @Model.Burs_Miktar</b> tl miktarında yapılan bursu silmek istiyormusunuz ?
+            </h2>
+
+            <form asp-controller="Scholarship" asp-action="Delete" asp-route-id="@Model.Burs_Id" asp-route-id2="@Model.Burs_Cocuk_Id" method="post">
+                <input type="hidden" asp-for="Burs_Id" />
+                <button type="submit" class="btn btn-primary">SİL</button>
+                <a class="btn btn-danger" asp-controller="Child" asp-action="profile" asp-route-id="@Model.Burs_Cocuk_Id">
+                    İPTAL
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,24 @@
+﻿@model Donation
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>
+                <b> @Model.Yardim_Tur</b>  türündeki yardımı silmek istiyormusunuz ?
+            </h2>
+
+            <form asp-controller="Donation" asp-action="Delete" asp-route-id2="@Model.Yardim_Vasi_Id"  method="post">
+                <input type="hidden" asp-for="Yardim_Id" />
+                <button type="submit" class="btn btn-primary">SİL</button>
+                <a class="btn btn-danger" asp-controller="Parents" asp-action="profile" asp-route-id="@Model.Yardim_Vasi_Id">
+                    İPTAL
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+

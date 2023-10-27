@@ -1,0 +1,139 @@
+﻿@model CSViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+    <div class="card text-center">
+        <div class="card-header">
+            ÇOCUK PROFİL BİLGİLERİ
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-2">
+                        <table class="table table-borderless">
+                            <thead>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> TC KİMLİK </u>  </h6> <h6> @Model.Child.Cocuk_Tc  </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> İSİM SOYİSİM  </u>  </h6> <h6> @Model.Child.Cocuk_AdiSoyadi  </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> CİNSİYET  </u>  </h6> <h6> @Model.Child.Cocuk_Cinsiyet  </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> DOĞUM TARİHİ </u>  </h6> <h6> @Model.Child.Cocuk_DogumTarihi </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> ÖĞRENİM DURUMU </u>  </h6> <h6> @Model.Child.Cocuk_OgrenimDurumu </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> OKUL / SINIF </u>  </h6> <h6> @Model.Child.Cocuk_OkulAdi / @Model.Child.Cocuk_Sinif </h6></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-2">
+                        <table class="table table-borderless">
+                            <thead>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> VASİ YAKINLIK DERECESİ  </u>  </h6> <h6> @Model.Child.Cocuk_VasiYakinlik</h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> ÇOCUĞUN KALDIĞI YER  </u>  </h6> <h6> @Model.Child.Cocuk_KaldigiYer</h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> ANNE ADI </u>  </h6> <h6> @Model.Child.Cocuk_AnneAdi </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> BABA ADI </u>  </h6> <h6> @Model.Child.Cocuk_BabaAdi </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> ANNE DURUM   </u>  </h6> <h6> @Model.Child.Cocuk_AnneDurum  </h6></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 class="text-dark"> <u> BABA DURUM   </u>  </h6> <h6> @Model.Child.Cocuk_BabaDurum </h6></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/images/imagess.png" class="card-img-top" alt="...">
+                            <br />
+                            <a class="btn btn-primary btn-sm" asp-controller="Child" asp-action="Edit" asp-route-id="@Model.Child.Cocuk_Id">
+                                DÜZENLE
+                            </a>
+                            <a class="btn btn-danger btn-sm" asp-controller="Child" asp-action="Delete" asp-route-id="@Model.Child.Cocuk_Id">
+                                PROFİLİ SİL
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>  BURSLAR </h3>
+
+            <a class="btn btn-danger btn-sm" asp-controller="Scholarship" asp-action="Create" asp-route-id="@Model.Child.Cocuk_Id">
+                BURS EKLE
+            </a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <br />
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">MİKTAR</th>
+                                <th scope="col"> SÜRE </th>
+                                <th scope="col"> İBAN </th>
+                                <th scope="col">İBAN SAHİBİ </th>
+                                <th scope="col">BANKA ADI</th>
+                                <th scope="col">B: ADI SOYADI</th>
+                                <th scope="col">B: TELEFON</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Scholarship)
+                            {
+                            <tr>
+                                <td>@item.Burs_Miktar</td>
+                                <td>@item.Burs_Sure</td>
+                                <td>@item.Burs_Iban</td>
+                                <td>@item.Burs_IbanSahibi</td>
+                                <td>@item.Burs_BankaAdi</td>
+                                <td>@item.Burs_BsvrAdiSoyadi</td>
+                                <td>@item.Burs_BsvrTelefon</td>
+
+                                <td>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Scholarship" asp-action="Edit" asp-route-id="@item.Burs_Id">
+                                        DÜZENLE
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Scholarship" asp-action="Delete" asp-route-id="@item.Burs_Id">
+                                        SİL
+                                    </a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

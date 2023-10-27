@@ -1,0 +1,199 @@
+﻿@model PCDViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+    <div class="m-3">
+        <div class="card text-center ">
+            <div class="card-header">
+                <h4> PROFİL BİLGİLERİ </h4>
+            </div>
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table table-responsive ">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> TC KİMLİK </th>
+                                                <th scope="col">İSİM SOYİSİM</th>
+                                                <th scope="col">TELEFON</th>
+                                                <th scope="col">BAKILAN ÇOCUK SAYISI </th>
+                                                <th scope="col">IBAN  </th>
+                                                <th scope="col">KAYIT TARİHİ </th>
+                             
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@Model.Parent.Vasi_Tc</td>
+                                                <td> @Model.Parent.Vasi_AdiSoyadi</td>
+                                                <td>@Model.Parent.Vasi_Telefon </td>
+                                                <td>@Model.Parent.Vasi_Cocuksayisi</td>
+                                                <td>@Model.Parent.Vasi_Iban</td>
+                                                <td>@Model.Parent.Vasi_Kayittarihi</td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"> İL / İLÇE </th>
+                                                <th scope="col">ADRES</th>
+                                                <th scope="col">MAAŞ</th>
+                                                <th scope="col">MAAŞ MİKTARI  </th>
+                                                <th scope="col">EV DURUMU</th>
+                                                <th scope="col">KİRA MİKTARI  </th>
+
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody>
+                                            <tr>
+                                                <td>@Model.Parent.Vasi_Il / @Model.Parent.Vasi_Ilce</td>
+                                                <td>  @Model.Parent.Vasi_Adres</td>
+                                                <td>@Model.Parent.Vasi_Maas</td>
+                                                <td>   @Model.Parent.Vasi_Maasmiktari</td>
+                                                <td> @Model.Parent.Vasi_Evdurumu </td>
+                                                <td>@Model.Parent.Vasi_Kiramiktari </td>
+
+                                            </tr>
+                                        </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">GÜNCELLEME TARİHİ </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@Model.Parent.Vasi_Guncellemetarihi</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-2 ">
+                            <div class="card table-responsive" style="width: 100%;">
+                                <img src="~/images/images.png" class="card-img-top" alt="...">
+                                <br />
+                                <a class="btn btn-primary btn-sm" asp-controller="parents" asp-action="edit" asp-route-id="@Model.Parent.Vasi_Id">
+                                    DÜZENLE
+                                </a>
+                                <a class="btn btn-danger btn-sm" asp-controller="parents" asp-action="delete" asp-route-id="@Model.Parent.Vasi_Id">
+                                    PROFİLİ SİL
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>  ÇOCUKLAR </h3>
+
+                    <a class="btn btn-danger btn-sm" asp-controller="Child" asp-action="Create" asp-route-id="@Model.Parent.Vasi_Id">
+                        ÇOCUK EKLE
+                    </a>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        @foreach (var item in Model.Child)
+                        {
+                            <div class="col-md-3">
+                                <br />
+                                <a asp-controller="Child" asp-action="Profile" asp-route-id="@item.Cocuk_Id">
+                                    <div class="card" style="width: 10rem;">
+                                        <img class="card-img-top" src="~/images/imagess.png" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                <h6>
+                                                    @item.Cocuk_AdiSoyadi
+                                                </h6>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <br />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-header">
+                <h3>  YARDIMLAR </h3>
+
+                <a class="btn btn-danger btn-sm" asp-controller="Donation" asp-action="Create" asp-route-id="@Model.Parent.Vasi_Id">
+                    YARDIM EKLE
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 p-3">
+                        <div class="table-responsive">
+                            <table id="datatables" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">TÜR</th>
+                                        <th scope="col"> ÜRÜN </th>
+                                        <th scope="col"> MİKTAR</th>
+                                        <th scope="col">AÇIKLAMA</th>
+                                        <th scope="col">TARİH</th>
+                                        <th scope="col">Y: ADI SOYADI</th>
+                                        <th scope="col">Y: TELEFON</th>
+                                        <th> İŞLEMLER</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Donation)
+                                    {
+                                        <tr>
+                                            <td>@item.Yardim_Tur</td>
+                                            <td>@item.Yardim_Urun</td>
+                                            <td>@item.Yardim_Miktar</td>
+                                            <td>@item.Yardim_Aciklama</td>
+                                            <td>@item.Yardim_Tarih</td>
+                                            <td>@item.Yardim_Ysvr_Adisoyadi</td>
+                                            <td>@item.Yardim_Ysvr_Telno</td>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" asp-controller="Donation" asp-action="Edit" asp-route-id="@item.Yardim_Id">
+                                                    DÜZENLE
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" asp-controller="Donation" asp-action="Delete" asp-route-id="@item.Yardim_Id">
+                                                    SİL
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section scripts{
+    <script type="text/javascript" class="init">
+
+        $(document).ready(function () {
+            $('#datatables').DataTable();
+        });
+
+    </script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+}
+
+

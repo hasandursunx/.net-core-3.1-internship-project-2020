@@ -1,0 +1,9 @@
+﻿@model Parent
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+
+    @Html.LabelFor(m => m.Vasi_Id)
+@Html.TextAreaFor(m => m.Vasi_Id, new { @class = "form-control" })

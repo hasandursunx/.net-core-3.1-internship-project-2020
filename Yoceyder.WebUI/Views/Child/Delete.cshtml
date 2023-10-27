@@ -1,0 +1,23 @@
+﻿@model Child
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>
+                    <b> @Model.Cocuk_AdiSoyadi</b> isimli çocuğu silmek istiyormusunuz ?
+                </h2>
+
+                <form asp-controller="Child" asp-action="Delete" asp-route-id="@Model.Cocuk_Id" asp-route-id2="@Model.Vasi_Id" method="post">
+                    <input type="hidden" asp-for="Cocuk_Id" />
+                    <button type="submit" class="btn btn-primary">SİL</button>
+                    <a class="btn btn-danger" asp-controller="Child" asp-action="profile" asp-route-id="@Model.Cocuk_Id">
+                        İPTAL
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+

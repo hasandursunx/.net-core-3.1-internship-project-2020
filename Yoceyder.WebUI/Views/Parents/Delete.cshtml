@@ -1,0 +1,24 @@
+﻿@model Parent
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>
+                <b> @Model.Vasi_AdiSoyadi</b> isimli kayıdı silmek istiyormusunuz ?
+            </h2>
+
+            <form asp-controller="Parents" asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Vasi_Id" />
+                <button type="submit" class="btn btn-primary">SİL</button>
+                <a class="btn btn-danger" asp-controller="Parents" asp-action="profile" asp-route-id="@Model.Vasi_Id">
+                    İPTAL
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+

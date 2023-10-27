@@ -1,0 +1,85 @@
+﻿@model Parent
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="container">
+        <h1>VASİ OLUŞTUR</h1>
+        <br />
+
+        <form asp-controller="parents" asp-action="create" method="post" enctype="multipart/form-data" >
+            <div class="form-group">
+                <div class="form-group">
+                    <select class="form-control" asp-for="Vasi_Dosya">
+                        <option>DOSYA1</option>
+                        <option>DOSYA2</option>
+                        <option>DOSYA3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Vasi_Tc">VASİ TC NO </label>
+                    <input type="text" asp-for="Vasi_Tc" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_AdiSoyadi">VASİ ADSOYAD</label>
+                    <input type="text" asp-for="Vasi_AdiSoyadi" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Telefon"> TELEFON </label>
+                    <input type="text" asp-for="Vasi_Telefon" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Il"> İL </label>
+                    <input type="text" asp-for="Vasi_Il" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Vasi_Ilce"> İLÇE </label>
+                    <input type="text" asp-for="Vasi_Ilce" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Adres"> ADRES </label>
+                    <textarea asp-for="Vasi_Adres" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Iban"> İBAN </label>
+                    <input type="text" asp-for="Vasi_Iban" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Evdurumu"> EV DURUMU </label>
+                    <input type="text" asp-for="Vasi_Evdurumu" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Kiramiktari"> KİRA MİKTARI </label>
+                    <input type="text" asp-for="Vasi_Kiramiktari" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Maas"> MAAŞ DURUMU </label>
+                    <input type="text" asp-for="Vasi_Maas" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Maasmiktari"> MAAŞ MİKTARI </label>
+                    <input type="text" asp-for="Vasi_Maasmiktari" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vasi_Cocuksayisi"> BAKILAN ÇOCUK SAYISI </label>
+                    <input type="text" asp-for="Vasi_Cocuksayisi" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Vasi_Kayittarihi"> KAYIT TARİHİ </label>
+                    <input  asp-for="Vasi_Kayittarihi" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Vasi_Guncellemetarihi"> GÜNCELLEME TARİHİ </label>
+                    <input  asp-for="Vasi_Guncellemetarihi" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">OLUŞTUR</button>
+                <button class="btn btn-danger" asp-controller="parents" asp-action="index">İPTAL</button>
+          </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,53 @@
+﻿@model Donation
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <div class="container">
+        <h1>YARDIM BİLGİLERİ DÜZENLE </h1>
+        <br />
+
+        <form asp-controller="Donation" asp-action="Edit" asp-route-id="@Model.Yardim_Vasi_Id" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+
+                <input type="hidden" asp-for="Yardim_Id" />
+                <div class="form-group">
+                    <select class="form-control" asp-for="Yardim_Tur">
+                        <option>NAKTİ</option>
+                        <option>AYNİ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Yardim_Urun"> ÜRÜN </label>
+                    <input type="text" asp-for="Yardim_Urun" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Yardim_Miktar"> MİKTAR </label>
+                    <input type="text" asp-for="Yardim_Miktar" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Yardim_Aciklama"> AÇIKLAMA </label>
+                    <input type="text" asp-for="Yardim_Aciklama" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Yardim_Tarih"> TARİH </label>
+                    <input type="text" asp-for="Yardim_Tarih" class="form-control">
+                </div>
+                <div class="bg-light">
+                    <div class="form-group">
+                        <label asp-for="Yardim_Ysvr_Adisoyadi"> HAYIRSEVER ADI SOYADI </label>
+                        <input type="text" asp-for="Yardim_Ysvr_Adisoyadi" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Yardim_Ysvr_Telno"> HAYIRSEVER TELEFON NUMARASI </label>
+                        <textarea asp-for="Yardim_Ysvr_Telno" class="form-control"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"> EKLE </button>
+                <a class="btn btn-danger" asp-controller="Parents" asp-action="profile" asp-route-id="@Model.Yardim_Vasi_Id">
+                    İPTAL
+                </a>
+            </div>
+        </form>
+    </div>
+

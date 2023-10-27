@@ -1,0 +1,50 @@
+﻿@model Scholarship
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <div class="container">
+        <h1>BURS BİLGİLERİ DÜZELT </h1>
+        <br />
+        <form asp-controller="Scholarship" asp-action="Edit" asp-route-id="@Model.Burs_Cocuk_Id" method="post">
+            <input type="hidden" asp-for="Burs_Id" />
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="Burs_Miktar"> MİKTAR </label>
+                    <input type="text" asp-for="Burs_Miktar" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Burs_Sure"> SÜRE </label>
+                    <input type="text" asp-for="Burs_Sure" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Burs_IbanSahibi"> İBAN SAHİBİ </label>
+                    <input type="text" asp-for="Burs_IbanSahibi" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Burs_Iban"> IBAN </label>
+                    <input type="text" asp-for="Burs_Iban" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Burs_BankaAdi"> IBAN BANKA </label>
+                    <input type="text" asp-for="Burs_BankaAdi" class="form-control">
+                </div>
+                <div class="bg-light">
+
+                    <div class="form-group">
+                        <label asp-for="Burs_BsvrAdiSoyadi">  BURS VEREN ADI SOYADI </label>
+                        <input type="text" asp-for="Burs_BsvrAdiSoyadi" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Burs_BsvrTelefon">  BURS VEREN TELEFON NUMARASI </label>
+                        <input type="text" asp-for="Burs_BsvrTelefon" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"> KAYDET </button>
+                <a class="btn btn-danger" asp-controller="Child" asp-action="Profile" asp-route-id="@Model.Burs_Cocuk_Id">
+                    İPTAL
+                </a>
+            </div>
+        </form>
+    </div>
+
